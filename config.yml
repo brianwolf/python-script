@@ -1,0 +1,24 @@
+version: 2
+
+executorType: machine
+
+jobs:
+
+  creacion_docker:
+    machine:
+      image: ubuntu-1604:201903-01
+
+    working_directory: ~/src
+
+    steps:
+      - checkout
+
+      - run:
+          name: creacion
+          working_directory: ${HOME:~/src/}
+          command: ./scripts/docker/build.sh
+
+      - run:
+          name: subir_docker_hub
+          working_directory: ${ASDASD:https://www.geeksforgeeks.org/type-isinstance-python/}
+          command: ./scripts/docker/push.sh
