@@ -18,4 +18,4 @@ args = parser.parse_args()
 
 params_yaml = yaml.safe_load(open(args.file))
 
-ejecutar(params_yaml)
+ejecutar(parsear_variables_de_ambiente(params_yaml))
