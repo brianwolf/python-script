@@ -17,6 +17,8 @@ parser.add_argument(_NOMBRE_CORTO_YML, _NOMBRE_LARGO_YML,
 
 args = parser.parse_args()
 
-params_yaml = yaml.safe_load(open(args.file))
+
+with open(args.file) as params_yaml_file:
+    params_yaml = yaml.safe_load(params_yaml_file)
 
 ejecutar(parsear_variables_de_ambiente(params_yaml))
