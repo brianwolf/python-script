@@ -10,7 +10,7 @@ rm -fr ${NOMBRE_PROYECTO}.spec
 echo "### Ejecutando Pyinstaller"
 echo
 pyinstaller \
-${ARCHIVO_PY_INICIADOR} \
+${CARPETA_PROYECTO}${ARCHIVO_PY_INICIADOR} \
 --clean \
 --onefile \
 --name ${NOMBRE_PROYECTO} \
