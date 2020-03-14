@@ -135,4 +135,4 @@ dmypy.json
 .pytype/
 
 # ides
-.vscode
+.vscode/
