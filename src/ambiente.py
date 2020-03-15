@@ -4,7 +4,7 @@ import re
 _REGEX_AMBIENTE = '\\$[^\\}]+(:[^\\}])*\\}'
 
 
-def parsear_variables_de_ambiente(elemento):
+def parsear_variables_de_ambiente(elemento: dict) -> dict:
     '''
     Devuelve el diccionario con las variables de ambiente
     reemplazadas por su correspondiente valor
@@ -21,7 +21,7 @@ def parsear_variables_de_ambiente(elemento):
             for elem in elemento
         ]
 
-    return _obtener_variable_de_ambiente(elemento)
+    return _parsear_variable_de_ambiente(elemento)
 
 
 def _es_variable_de_ambiente(variable: str) -> bool:
@@ -32,7 +32,7 @@ def _es_variable_de_ambiente(variable: str) -> bool:
     return re.match(_REGEX_AMBIENTE, str(variable)) != None
 
 
-def _obtener_variable_de_ambiente(variable: str) -> str:
+def _parsear_variable_de_ambiente(variable: str) -> str:
     '''
     Obtiene el valor de la variable de entorno con el formato de ${VAR:default}
     '''
@@ -45,4 +45,11 @@ def _obtener_variable_de_ambiente(variable: str) -> str:
     var_ambiente = variables[0]
     val_default = variables[1] if len(variables) > 1 else ''
 
-    return os.environ.get(var_ambiente, val_default)
+    return obtener_valor(var_ambiente, val_default)
+
+
+def obtener_valor(variable: str, valor_predefinido: str = '') -> str:
+    '''
+    Devuelve el valor de una variable de ambiente
+    '''
+    return os.environ.get(variable, valor_predefinido)
