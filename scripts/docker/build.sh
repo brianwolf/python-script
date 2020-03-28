@@ -1,25 +1,19 @@
-source ./scripts/docker/ambiente.sh
-
-
 printf "### Borrando archivos generados anteriores \n"
-rm -fr src/dist/ src/build/ src/specs/
+rm -fr dist/ build/ specs/
 
 printf "### Ejecutando Pyinstaller con Docker \n"
 docker run -it --rm \
--v $(pwd)/src:${CARPETA_PROYECTO}:rw \
+-v $(pwd):/usr/src:rw \
 python:3.8 /bin/sh -c "
-    cd ${CARPETA_PROYECTO}
-    
+    cd /usr/src
+
     pip install \
-        -r requirements.txt \
+        -r src/requirements.txt \
         --upgrade pip
     
-    pyinstaller ${ARCHIVO_PY_INICIADOR} \
-        --clean \
-        --onefile \
-        --name ${NOMBRE_PROYECTO} \
-        --log-level ${NIVEL_LOG} \
-        --specpath ./specs
+    ./scripts/pyinstaller/build.sh
+    ./dist/script-python-ejemplo -f src/config.yml
 
+    gcc --version
     chmod 777 . -R
     "

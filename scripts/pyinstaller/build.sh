@@ -1,8 +1,5 @@
 . ./scripts/pyinstaller/ambiente.env
 
-# cd ${CARPETA_PROYECTO}
-
-ls
 
 printf "\nBorrando archivos generados anteriores \n"
 rm -fr dist/
@@ -15,9 +12,8 @@ ${CARPETA_PROYECTO}${ARCHIVO_PY_INICIADOR} \
 --onefile \
 --name ${NOMBRE_PROYECTO} \
 --log-level ${NIVEL_LOG} \
---add-data="src/resources/version.txt:resources" \
+--add-data="src/resources/version.txt:resources"
+
 
 printf "\nBorrando archivos innecesarios \n\n"
 rm -fr build/ *.spec
-
-# cd ..
