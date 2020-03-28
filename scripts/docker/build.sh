@@ -4,7 +4,7 @@ rm -fr dist/ build/ specs/
 printf "### Ejecutando Pyinstaller con Docker \n"
 docker run -it --rm \
 -v $(pwd):/usr/src:rw \
-python:3.8 /bin/sh -c "
+brianwolf94/pyinstaller-ubuntu:local /bin/sh -c "
     cd /usr/src
 
     pip install \
