@@ -10,7 +10,7 @@ from script import ejecutar
 _ruta_base = sys._MEIPASS if hasattr(sys, '_MEIPASS') else ''
 _ruta_resources = path.join(_ruta_base, 'resources')
 _ruta_archivo_version = path.join(_ruta_resources, 'version.txt')
-_ruta_archivo_config_yml = path.join(_ruta_base, 'config.yml')
+_ruta_archivo_config_yml = 'config.yml'
 
 
 def cargar_version_script(ruta_archivo: str):
