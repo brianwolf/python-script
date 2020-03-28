@@ -1,15 +1,26 @@
-source ./scripts/pyinstaller/ambiente.sh
+. ../scripts/pyinstaller/ambiente.env
+
+# cd ${CARPETA_PROYECTO}
+
+ls
+
+printf "### Borrando archivos generados anteriores \n\n"
+rm -fr dist/
 
 
-printf "### Borrando archivos generados anteriores \n"
-rm -fr build/ dist/
-rm -fr ${NOMBRE_PROYECTO}.spec
-
-
-printf "### Ejecutando Pyinstaller \n"
+printf "### Ejecutando Pyinstaller \n\n"
 pyinstaller \
-${CARPETA_PROYECTO}/${ARCHIVO_PY_INICIADOR} \
+${ARCHIVO_PY_INICIADOR} \
 --clean \
 --onefile \
 --name ${NOMBRE_PROYECTO} \
---log-level ${NIVEL_LOG}
+--log-level ${NIVEL_LOG} \
+--add-data="version.txt:resources" \
+# --specpath specs \
+# --distpath dist \
+# --workpath build
+
+printf "### Borrando archivos innecesarios \n\n"
+rm -fr build/ specs/
+
+# cd ..
