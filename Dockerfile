@@ -15,4 +15,9 @@ ENV VERSION=${TAG}
 
 
 # CODIGO FUENTE
+COPY ./scripts .
 COPY ./src/ .
+
+
+# COMPILACION
+RUN ./scripts/build.sh
