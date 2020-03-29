@@ -4,44 +4,49 @@
 
 Esto permite un mejor lenguaje que *bash* para hacer cosas muchas mas copadas
 
-![alt text](img/script.jpg)
+![alt text](docs/img/script.jpg)
 
 ---
 
-## Indice
+## :open_book: Documentacion adicional
 
-* [Requerimientos](#requerimientos)
-* [Ejecucion](#ejecucion)
-* [Npm](#npm)
-* [Paginas](#paginas)
-* [Autor](#autor)
+* [Instalacion con Docker](docs/docker.md)
+* [Instalacion con Python](docs/python.md)
 
 ---
 
-## Requerimientos
+## :tada: Uso
 
-* Python 3.8
+Luego de haber instalado el proyecto y creado el ejecutable, ejecutarlo como cualquier otro script desde la raiz del proyecto
 
-## Ejecucion
+* `./dist/{NOMBRE_DEL_EJECUTABLE}`
 
-* Instalar las dependencias con el comando `npm install`
-* Ejecutar el server de *express* con `npm start`
-* El server quedara ejecutado en el **puerto 7000**
-* Para probar que se levanto correctamente ejecutar en un navegador `http://localhost:7000/`
-* Para ver las variables configuradas en la app `http://localhost:7000/variables`
+## :package: Despliegue
 
-## Npm
+La aplicacion se despliega de forma automatica utilizando *CircleCI* cada vez que se realiza un merge a la rama *master*,
+para ello utiliza los scripts dentro de la carpeta `scripts/`, es decir que ejecutar los scripts manualmente es similar a lo que ejecutan las tasks dentro de los jobs del pipeline de circleci
 
-* **start**: para levantar la aplicacion con *node*
-* **demon**: para levantar la aplicacion con *nodemon*
-* **stop**: para matar la aplicacion corriendo en el **puerto 7000**
+Este despliegue consiste en:
 
----
+**Contruccion**:
 
-## Paginas
+* Construir el ejecutable con docker mediante el script de *docker/build.sh*
 
-* [Levantar un MongoDB con docker-compose](https://github.com/brianwolf/dockers-utiles/tree/master/base_de_datos/no_relacionales/mongodb)
+**Subir nueva version**:
 
-## Autor
+* Subir el nuevo ejecutable dentro de un repo de *GitHub* distinto para administrar las versiones
+* Generar un Tag en ambos repos con la nueva version creada
+* Hacer un push en el repo de versiones
 
-* **Brian Lobo** * *Creador* * [brianwolf](https://github.com/brianwolf)
+## :earth_americas: Paginas
+
+* [Docker Hub Python](https://hub.docker.com/_/python)
+* [CircleCI](https://circleci.com/)
+* [Emoticones del Readme](https://github.com/ikatyang/emoji-cheat-sheet)
+
+## :grin: Autor
+
+> **Brian Lobo**
+
+* Github: [brianwolf](https://github.com/brianwolf)
+* Docker Hub:  [brianwolf94](https://hub.docker.com/u/brianwolf94)
