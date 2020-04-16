@@ -2,7 +2,7 @@
 
 > Estructura para ejecutar sripts de python como si fuesen scripts de linux
 
-Esto permite un mejor lenguaje que *bash* para hacer cosas muchas mas copadas
+Esto permite un mejor lenguaje que *bash* para hacer cosas mas copadas
 
 ![alt text](docs/img/script.jpg)
 
